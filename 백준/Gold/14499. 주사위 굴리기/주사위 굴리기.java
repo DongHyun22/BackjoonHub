@@ -8,10 +8,11 @@ public class Main {
     static int[] dy = {0, 1, -1, 0, 0};
     static int[] command;
     static int[][] dice;
+    static BufferedWriter bw;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
         n = Integer.parseInt(st.nextToken());
         m = Integer.parseInt(st.nextToken());
@@ -19,23 +20,24 @@ public class Main {
         y = Integer.parseInt(st.nextToken());
         k = Integer.parseInt(st.nextToken());
         map = new int[n][m];
-        char[] s;
         for (int i = 0; i < n; i++) {
-            s = br.readLine().replace(" ", "").toCharArray();
+            st = new StringTokenizer(br.readLine());
             for (int j = 0; j < m; j++) {
-                map[i][j] = s[j] - '0';
+                map[i][j] = Integer.parseInt(st.nextToken());
             }
         }
-        s = br.readLine().replace(" ", "").toCharArray();
+        st = new StringTokenizer(br.readLine());
         command = new int[k];
         for (int i = 0; i < k; i++) {
-            command[i] = s[i] - '0';
+            command[i] = Integer.parseInt(st.nextToken());
         }
         dice = new int[4][3];
         solution();
+        bw.flush();
+        bw.close();
     }
 
-    public static void solution() {
+    public static void solution() throws IOException {
         for (int i = 0; i < k; i++) {
             int dir = command[i];
             int nx = x + dx[dir];
@@ -44,7 +46,7 @@ public class Main {
                 continue;
             }
             moveDice(dir);
-            System.out.println(dice[1][1]);
+            bw.write(dice[1][1] + "\n");
             if (map[nx][ny] == 0) {
                 map[nx][ny] = dice[3][1];
             } else {
