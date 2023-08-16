@@ -8,8 +8,9 @@ class Solution {
             map.put(want[i], number[i]);
         }
         for(int i = 0; i < 10; i++){
-            if(map.containsKey(discount[i])){
-                map.put(discount[i], map.get(discount[i]) - 1);
+            String num = discount[i];
+            if(map.containsKey(num)){
+                map.put(num, map.get(num) - 1);
             }
         }
         boolean flag = true;
@@ -24,11 +25,13 @@ class Solution {
         }
         for(int i = 0; i < discount.length - 10; i++){
             flag = true;
-            if(map.containsKey(discount[i])){
-                map.put(discount[i], map.get(discount[i]) + 1);
+            String first = discount[i];
+            String end = discount[i+10];
+            if(map.containsKey(first)){
+                map.put(first, map.get(first) + 1);
             }
-            if(map.containsKey(discount[i+10])){
-                map.put(discount[i+10], map.get(discount[i+10]) - 1);
+            if(map.containsKey(end)){
+                map.put(end, map.get(end) - 1);
             }
             for(String s : map.keySet()){
                 if(map.get(s) > 0){
