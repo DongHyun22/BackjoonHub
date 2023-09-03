@@ -8,9 +8,6 @@ class Solution {
             String b = Integer.toString(num, n);
             for(int i = 0; i < b.length(); i++){
                 char c = b.charAt(i);
-                if(97 <= c && c <= 122){
-                    c -= 32;
-                }
                 if(seq % m == p - 1) {
                     answer += c;
                     count++;
@@ -22,6 +19,7 @@ class Solution {
             }
             num++;
         }
+        answer = answer.toUpperCase();
         return answer;
     }
 }
