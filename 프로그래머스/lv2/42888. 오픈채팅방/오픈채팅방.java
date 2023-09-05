@@ -4,9 +4,6 @@ class Solution {
         ArrayList<String> answer = new ArrayList<>();
         HashMap<String, String> member = new HashMap<>();
         ArrayDeque<String> q = new ArrayDeque<>();
-        // 닉네임 변경
-        // 0. 입장
-        // 1. 떠나기
         for(int i = 0; i < record.length; i++) {
             String[] s = record[i].split(" ");
             if(s[0].equals("Enter")){
