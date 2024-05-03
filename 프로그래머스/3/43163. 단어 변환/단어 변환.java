@@ -17,8 +17,8 @@ class Solution {
         return answer;
     }
     public void dfs(String s, int count, boolean[] visited) {
-        if(s.equals(target) && count < min) {
-            min = count;
+        if(s.equals(target)) {
+            min = Math.min(min, count);
             return;
         }
         
