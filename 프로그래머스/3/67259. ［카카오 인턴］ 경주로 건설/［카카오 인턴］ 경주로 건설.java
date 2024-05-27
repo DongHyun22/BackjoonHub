@@ -62,12 +62,16 @@ class Solution {
                     
                     int cost = straight * 100 + corner * 500;
                     
-                    if(!visited[lx][ly][i] || dp[lx][ly] >= cost) {
+                    if(!visited[lx][ly][i]) {
                         queue.add(new int[] {lx, ly, dx[i], dy[i], straight, corner});
                         visited[lx][ly][i] = true;
-                        if(dp[lx][ly] >= cost)
-                            dp[lx][ly] = cost;
                     }
+                    if(dp[lx][ly] >= cost) {
+                        queue.add(new int[] {lx, ly, dx[i], dy[i], straight, corner});
+                        visited[lx][ly][i] = true;
+                        dp[lx][ly] = cost;
+                    }
+                    
                 }
             }
         }
