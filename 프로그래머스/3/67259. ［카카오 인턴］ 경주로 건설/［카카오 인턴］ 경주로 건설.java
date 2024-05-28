@@ -66,7 +66,7 @@ class Solution {
                         queue.add(new int[] {lx, ly, dx[i], dy[i], straight, corner});
                         visited[lx][ly][i] = true;
                     }
-                    if(dp[lx][ly] >= cost) {
+                    else if(dp[lx][ly] >= cost) {
                         queue.add(new int[] {lx, ly, dx[i], dy[i], straight, corner});
                         visited[lx][ly][i] = true;
                         dp[lx][ly] = cost;
