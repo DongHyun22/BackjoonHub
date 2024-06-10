@@ -56,7 +56,6 @@ class Solution {
             }
         }
         
-        
         // 해당 장르의 Music객체 생성 후 우선순위 큐에 넣어 실행
         int size = temp.size();
         int[] answer = temp.stream().mapToInt(Integer::intValue).toArray();
